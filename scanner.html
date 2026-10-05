@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#fcf8f7">
+    <title>Escáner QR · Digital Connect</title>
+    <link rel="icon" href="./scanner-favicon.png">
+    <link rel="stylesheet" href="./scanner.css?v=20261005-2">
+  </head>
+  <body>
+    <div class="scan-flash" id="scanFlash" hidden aria-live="assertive">
+      <span class="flash-check" id="flashCheck">✓</span>
+      <strong id="flashTitle">Acceso válido</strong>
+      <span id="flashSubtitle">Código confirmado</span>
+    </div>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="Volver a Digital Connect">
+          <img src="./scanner-logo.png" alt="Digital Connect">
+        </a>
+      </header>
+
+      <section class="scanner-layout" aria-label="Escáner de códigos QR">
+        <div class="scanner-card">
+          <div class="camera-stage liquid-glass-black" id="cameraStage">
+            <div id="cameraReader" aria-label="Vista de cámara"></div>
+            <canvas id="scanCanvas" hidden></canvas>
+            <div class="camera-placeholder" id="cameraPlaceholder">
+              <svg class="placeholder-qr" viewBox="0 0 120 120" aria-hidden="true">
+                <g fill="currentColor">
+                  <path d="M10 10h32v7H17v34h-7zM78 10h32v41h-7V17H78zM10 78h7v32h34v7H10zM78 110h32V78h-7v25H78z"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28 28h28v28H28zM36 36h12v12H36zM65 28h28v28H65zM73 36h12v12H73zM28 65h28v28H28zM36 73h12v12H36z"></path>
+                  <path d="M66 66h12v12H66zM82 66h12v12H82zM66 82h12v12H66z"></path>
+                </g>
+              </svg>
+              <div class="camera-copy">
+                <strong>Escanea el código QR</strong>
+                <span>Coloca el código QR de la invitación<br>frente a la cámara para validar el acceso.</span>
+              </div>
+            </div>
+            <div class="scan-frame" aria-hidden="true">
+              <i class="corner top-left"></i><i class="corner top-right"></i>
+              <i class="corner bottom-left"></i><i class="corner bottom-right"></i>
+              <span class="scan-line"></span>
+            </div>
+          </div>
+
+          <p class="auto-copy">El código se validará automáticamente.</p>
+          <div class="camera-controls">
+            <button class="primary-button" id="toggleScan" type="button"><span class="button-icon">⌾</span><span id="toggleLabel">Escanear código QR</span></button>
+          </div>
+
+        </div>
+
+        <aside class="result-card" id="resultCard" aria-live="polite">
+          <div class="result-heading"><span class="result-icon" id="resultIcon">⌁</span><div><span class="eyebrow">RESULTADO</span><h3 id="resultTitle">Esperando un código</h3></div></div>
+          <div class="empty-result" id="emptyResult"><div class="empty-graphic">⌗</div><p>Cuando detectemos un QR, la información aparecerá aquí.</p></div>
+          <div class="result-content" id="resultContent" hidden>
+            <span class="result-type">CONTENIDO DEL CÓDIGO</span>
+            <div class="result-value" id="resultValue"></div>
+            <div class="result-actions"><button class="secondary-button" id="copyResult" type="button">Copiar contenido</button><a class="secondary-button" id="openResult" href="#" target="_blank" rel="noopener" hidden>Abrir enlace</a></div>
+            <button class="text-button" id="clearResult" type="button">Escanear un nuevo QR</button>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="brand-footer">
+        <div class="brand-copy">
+          <p class="brand-caption">Invitaciones y álbumes creados con amor digital</p>
+          <a class="brand-link" href="https://www.facebook.com/people/Digital-Invita/61587804296779/" target="_blank" rel="noopener noreferrer">Creado por Digital Invita</a>
+          <p class="brand-question">Invitaciones y experiencias digitales para tus eventos</p>
+        </div>
+        <div class="brand-cta">
+          <a href="https://wa.me/525550591264?text=Hola%2C%20quiero%20informaci%C3%B3n%20acerca%20de%20sus%20invitaciones%20y%20%C3%A1lbumes%20digitales." target="_blank" rel="noopener noreferrer">Contáctanos</a>
+        </div>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="./scanner-html5-qrcode.js?v=2.3.8-local" defer></script>
+    <script src="./scanner-jsqr.js?v=1.4.0-local" defer></script>
+    <script src="./scanner.js?v=20261005-3" defer></script>
+  </body>
+</html>

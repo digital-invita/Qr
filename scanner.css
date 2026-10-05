@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--rose:#806e61;--pink:#a99582;--ink:#171615;--muted:#716b67;--line:#e5ded8;--cream:#fbfaf8}
+*{box-sizing:border-box}body{margin:0;min-width:320px;color:var(--ink);background:var(--cream);font-family:'DM Sans',system-ui,sans-serif}button,input{font:inherit}button,a{-webkit-tap-highlight-color:transparent}
+.app-shell{width:min(430px,100%);min-height:100svh;margin:auto;padding:20px 16px 18px}.topbar{display:flex;align-items:center;justify-content:space-between;padding-bottom:20px}.brand{display:block;width:154px;height:38px;overflow:hidden;background:transparent}.brand img{width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:multiply}.status-pill{display:flex;align-items:center;gap:8px;color:#71696b;font-size:11px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:8px 11px}.status-dot{width:7px;height:7px;border-radius:50%;background:#33ab68;box-shadow:0 0 0 4px #e5f5eb}
+.scanner-layout{display:flex;flex-direction:column;gap:16px}.scanner-card{padding:0;background:transparent;border:0;box-shadow:none}.camera-stage{position:relative;overflow:hidden;aspect-ratio:1/1.12;border-radius:24px;background:radial-gradient(circle at 50% 35%,#3d3935 0,#161517 72%);box-shadow:0 12px 28px rgba(46,28,29,.12)}#cameraReader{position:absolute;inset:0;width:100%;height:100%}#cameraReader video{display:block;width:100%!important;height:100%!important;object-fit:cover}#cameraReader img,#cameraReader canvas{display:none!important}
+.camera-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;text-align:center;gap:13px;background:linear-gradient(145deg,rgba(49,43,38,.88),rgba(16,16,18,.92))}.placeholder-qr{display:grid;grid-template-columns:repeat(3,14px);grid-template-rows:repeat(3,14px);gap:5px;margin-bottom:6px}.placeholder-qr i{display:block;border:3px solid #c5b3a2;border-radius:4px}.placeholder-qr b{display:block;border:0;border-radius:2px;background:#c5b3a2}.camera-placeholder strong{font:500 21px 'Space Grotesk',sans-serif}.camera-placeholder span{color:#eee8e9;font-size:14px;line-height:1.55}.camera-stage.is-active .camera-placeholder{display:none}
+.scan-success{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#fff;text-align:center;background:rgba(29,27,24,.82);backdrop-filter:blur(3px);animation:success-in .3s ease-out}.scan-success[hidden]{display:none}.success-check{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;color:#fff;background:#6f9b78;box-shadow:0 0 0 12px rgba(111,155,120,.18);font-size:38px;font-weight:700}.scan-success strong{font:600 21px 'Space Grotesk',sans-serif}.scan-success span:last-child{color:#e8e3df;font-size:13px}@keyframes success-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.scan-frame{position:absolute;inset:12% 13%;pointer-events:none}.corner{position:absolute;width:42px;height:42px;border-color:#c8b19c;border-style:solid}.top-left{top:0;left:0;border-width:4px 0 0 4px;border-radius:12px 0 0}.top-right{top:0;right:0;border-width:4px 4px 0 0;border-radius:0 12px 0 0}.bottom-left{bottom:0;left:0;border-width:0 0 4px 4px;border-radius:0 0 0 12px}.bottom-right{right:0;bottom:0;border-width:0 4px 4px 0;border-radius:0 0 12px}.scan-line{position:absolute;top:8%;right:4px;left:4px;height:3px;background:linear-gradient(90deg,transparent 0%,#c8b19c 16%,#e4d5c8 50%,#c8b19c 84%,transparent 100%);box-shadow:0 0 10px 1px rgba(200,177,156,.85);opacity:0}.scan-line:after{content:'';position:absolute;right:0;bottom:2px;left:0;height:46px;background:linear-gradient(to top,rgba(200,177,156,.3),transparent);filter:blur(3px)}.camera-stage.is-active .scan-line{opacity:1;animation:scan 2.4s cubic-bezier(.45,0,.55,1) infinite}@keyframes scan{0%,100%{top:8%}50%{top:91%}}
+.camera-label{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);border-radius:999px;padding:6px 11px;color:#fff;background:rgba(23,7,17,.52);backdrop-filter:blur(8px);font-size:11px}.auto-copy{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:12px;margin:16px 0 0}.auto-copy:before,.auto-copy:after{content:'';display:block;width:42px;height:1px;background:#ddcecf}
+.camera-controls{display:flex;gap:10px;padding:16px 0 4px}.primary-button,.secondary-button,.icon-button,.text-button{cursor:pointer;border:0;transition:transform .15s,box-shadow .15s}.primary-button:hover,.secondary-button:hover,.icon-button:hover{transform:translateY(-1px)}.primary-button{flex:1;border-radius:12px;padding:14px 16px;color:#fff;background:var(--pink);font-weight:700;box-shadow:0 8px 18px rgba(159,89,102,.2)}.button-icon{font-size:20px;vertical-align:-1px;margin-right:8px}.icon-button{width:48px;color:var(--rose);border:1px solid var(--line);border-radius:12px;background:#fff;font-size:24px}.icon-button:disabled{opacity:.4;cursor:not-allowed}
+.upload-divider{display:flex;align-items:center;gap:12px;color:#a29399;font-size:11px;margin:16px 0 12px}.upload-divider:before,.upload-divider:after{content:'';height:1px;background:var(--line);flex:1}.drop-zone{display:flex;justify-content:center;align-items:center;gap:12px;min-height:70px;border:1px dashed #cdb6b9;border-radius:14px;color:var(--ink);background:#fffdfc;cursor:pointer;text-align:left}.drop-zone:hover,.drop-zone.is-dragging{border-color:var(--pink);background:#fff5f6}.drop-zone input{display:none}.upload-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;color:var(--rose);background:#f7e9eb;font-size:23px}.drop-zone strong,.drop-zone small{display:block}.drop-zone strong{font-size:13px}.drop-zone small{color:var(--muted);font-size:11px;margin-top:3px}.privacy-note{text-align:center;color:#a29399;font-size:10px;margin-top:12px}.privacy-note span{color:var(--pink)}
+.result-card{padding:20px;display:flex;flex-direction:column;min-height:190px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 14px 35px rgba(83,25,35,.06)}.result-heading{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line)}.result-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;background:#36a866;font-weight:700}.eyebrow{display:block;color:var(--rose);font-size:10px;font-weight:700;letter-spacing:.18em}h3{font:600 18px 'Space Grotesk',sans-serif;margin:5px 0 0}.empty-result{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;color:var(--muted);padding:22px 20px 4px}.empty-graphic{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;color:var(--rose);background:#f6e8e9;font-size:28px}.empty-result p{max-width:250px;font-size:12px;line-height:1.55}.result-content{padding-top:18px}.result-type{color:#a29399;font-size:10px;letter-spacing:.12em;font-weight:700}.result-value{overflow-wrap:anywhere;min-height:100px;max-height:230px;overflow:auto;margin:9px 0 18px;padding:14px;border-radius:12px;color:#4c4054;background:#faf7fc;font-size:13px;line-height:1.55;white-space:pre-wrap}.result-actions{display:flex;gap:8px;flex-wrap:wrap}.secondary-button{padding:10px 12px;border:1px solid var(--line);border-radius:9px;color:var(--rose);background:#fff;font-size:12px;font-weight:700;text-decoration:none}.text-button{display:block;margin:22px auto 0;color:var(--rose);background:none;font-size:12px;text-decoration:underline}footer{display:flex;justify-content:center;gap:9px;color:#a29399;font-size:11px;padding-top:22px}.footer-dot{color:var(--pink)}.toast{position:fixed;left:50%;bottom:24px;z-index:5;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:11px 16px;border-radius:999px;color:#fff;background:#2d1739;font-size:12px;transition:.25s}.toast.is-visible{opacity:1;transform:translate(-50%,0)}
+@media(max-width:380px){.app-shell{padding-right:12px;padding-left:12px}.camera-placeholder strong{font-size:18px}.camera-placeholder span{font-size:12px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Ajustes finales de interfaz */
+.app-shell{padding-top:18px;padding-bottom:22px}
+.brand{width:164px;height:40px}
+.status-pill{background:rgba(255,255,255,.75);box-shadow:0 4px 14px rgba(93,73,56,.04)}
+.camera-stage{border:1px solid rgba(255,255,255,.1);border-radius:26px;box-shadow:0 16px 34px rgba(46,28,29,.14)}
+.primary-button{min-height:52px;border-radius:14px;box-shadow:0 8px 18px rgba(128,110,97,.2)}
+.upload-divider{margin-top:18px}
+.drop-zone{min-height:74px;border-color:#cdbdb1;border-radius:16px;background:rgba(255,255,255,.7);transition:border-color .15s,background .15s}
+.drop-zone:hover,.drop-zone.is-dragging{background:#f8f3ee}
+.upload-icon{width:36px;height:36px;border-radius:11px;background:#f1ebe4}
+.result-card{border-radius:22px;background:rgba(255,255,255,.86);backdrop-filter:blur(8px)}
+.result-icon{background:#6f9b78}
+.empty-graphic{background:#f1ebe4}
+.camera-stage{aspect-ratio:1 / 0.94}
+.primary-button{min-height:46px;padding:11px 14px}
+.camera-stage{aspect-ratio:1 / 0.82}
+.scan-flash{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:#fff;text-align:center;background:rgba(52,151,83,.94);animation:flash-in .22s ease-out}.scan-flash[hidden]{display:none}.scan-flash[data-status="invalid"]{background:rgba(170,66,62,.95)}.flash-check{display:grid;place-items:center;width:86px;height:86px;border:5px solid rgba(255,255,255,.88);border-radius:50%;font-size:52px;font-weight:700;box-shadow:0 0 0 14px rgba(255,255,255,.14)}.scan-flash strong{font:600 26px 'Space Grotesk',sans-serif}.scan-flash span:last-child{font-size:14px;opacity:.9}.result-card[data-status="valid"]{border-color:#a8c9ad}.result-card[data-status="invalid"]{border-color:#d9aaa5}.result-card[data-status="invalid"] .result-icon{background:#b25f58}@keyframes flash-in{from{opacity:0}to{opacity:1}}
+
+/* Paleta juvenil */
+:root{--rose:#6658d7;--pink:#2cc4b5;--ink:#202033;--muted:#74748a;--line:#e0e0f2;--cream:#f7f7fe}
+body{background:linear-gradient(145deg,#f7f7fe 0%,#fff 58%,#f0fffc 100%)}
+.placeholder-qr{display:block;width:76px;height:76px;margin-bottom:4px;color:#aaa2ff}
+.camera-stage .corner{border-color:#aaa2ff}
+.scan-line{background:linear-gradient(90deg,transparent 0%,#8f86f2 16%,#8ce8df 50%,#8f86f2 84%,transparent 100%);box-shadow:0 0 12px 2px rgba(102,88,215,.62)}
+.scan-line:after{background:linear-gradient(to top,rgba(90,215,203,.28),transparent)}
+.primary-button{background:linear-gradient(110deg,#6658d7,#36bfb4);box-shadow:0 8px 18px rgba(102,88,215,.22)}
+.empty-graphic{color:#6658d7;background:#eeedff}
+.result-card{box-shadow:0 14px 35px rgba(77,69,160,.08)}
+.camera-stage{background:radial-gradient(circle at 50% 35%,#34325d 0,#111426 72%)}
+.camera-placeholder{background:linear-gradient(145deg,rgba(31,31,52,.93),rgba(11,15,30,.96))}
+.camera-label{background:rgba(11,15,30,.62)}
+
+/* Colores tomados del logotipo: morado y magenta, sin degradados */
+:root{--rose:#8e00c8;--pink:#ff08b8;--ink:#241329;--muted:#75657c;--line:#eadcf0;--cream:#fcf9fd}
+body{background:#fcf9fd}
+.camera-stage{background:#270b3c}
+.camera-placeholder{background:#270b3c}
+.placeholder-qr{color:#ff08b8}
+.camera-stage .corner{border-color:#ff08b8}
+.scan-line{background:#ff08b8;box-shadow:0 0 12px 2px rgba(255,8,184,.7)}
+.scan-line:after{background:rgba(255,8,184,.2);filter:blur(2px)}
+.primary-button{background:#8e00c8;box-shadow:0 8px 18px rgba(142,0,200,.22)}
+.empty-graphic{color:#8e00c8;background:#f1e5f7}
+.scan-frame{inset:0}
+.scan-frame .corner{display:none}
+.scan-line{left:18%;right:18%}
+.result-icon{color:#8e00c8;background:#f1e5f7}
+.result-card[data-status="valid"] .result-icon{color:#fff;background:#6f9b78}
+.result-card[data-status="invalid"] .result-icon{color:#fff;background:#b25f58}
+
+/* Acabado iOS premium */
+:root{--rose:#24242b;--pink:#24242b;--ink:#1d1d20;--muted:#77777f;--line:#e4e4e8;--cream:#f5f5f7}
+body{background:#f5f5f7;color:#1d1d20;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.app-shell{width:min(430px,100%);padding:18px 14px 26px}
+.brand{width:164px;height:40px}
+.status-pill{color:#6f6f77;border-color:rgba(0,0,0,.07);background:rgba(255,255,255,.78);box-shadow:0 6px 20px rgba(0,0,0,.04);backdrop-filter:blur(18px)}
+.scanner-layout{gap:14px}
+.camera-stage{aspect-ratio:1 / 0.82;border:1px solid rgba(255,255,255,.08);border-radius:28px;background:#111116;box-shadow:0 18px 40px rgba(0,0,0,.13)}
+.camera-placeholder{background:#111116;gap:14px}
+.placeholder-qr{width:78px;height:78px;color:#f2f2f7}
+.camera-placeholder strong{font:600 21px -apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;letter-spacing:-.02em}
+.camera-placeholder span{color:#c7c7ce;font-size:13px}
+.scan-line{background:#f2f2f7;box-shadow:0 0 12px rgba(255,255,255,.72)}
+.scan-line:after{background:rgba(255,255,255,.15);filter:blur(2px)}
+.primary-button{min-height:48px;border-radius:15px;color:#fff;background:#1d1d20;box-shadow:0 8px 18px rgba(0,0,0,.12);font-weight:600}
+.auto-copy{color:#8a8a91;margin-top:13px}
+.auto-copy:before,.auto-copy:after{background:#d5d5da}
+.result-card{padding:20px;border-color:rgba(0,0,0,.07);border-radius:24px;background:rgba(255,255,255,.86);box-shadow:0 12px 34px rgba(0,0,0,.06);backdrop-filter:blur(18px)}
+.result-icon{color:#24242b;background:#f0f0f3}
+.empty-graphic{color:#24242b;background:#f0f0f3}
+.eyebrow{color:#77777f;letter-spacing:.14em}
+h3{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;font-weight:600;letter-spacing:-.02em}
+.secondary-button{color:#24242b;border-color:#dedee3;background:#fff}
+.text-button{color:#24242b}
+footer{color:#98989f}
+
+/* Pie de página compartido con invitaciones y álbumes digitales */
+.brand-footer{position:relative;width:calc(100% + 28px);margin:18px -14px 0;padding:14px 18px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;color:#24242b;border-top:1px solid rgba(36,36,43,.08);background:rgba(255,255,255,.86);box-shadow:0 -12px 28px rgba(15,23,42,.05),inset 0 1px 0 rgba(255,255,255,.96);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+.brand-copy{min-width:0;padding-left:max(0px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:8px}
+.brand-copy:before{content:"";width:5px;height:5px;flex:0 0 auto;border-radius:50%;background:#24242b;box-shadow:0 0 8px rgba(36,36,43,.16)}
+.brand-caption,.brand-question{display:none}
+.brand-link{display:block;color:#24242b;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.brand-cta{flex:0 0 auto;padding-right:max(0px,env(safe-area-inset-right,0px))}
+.brand-cta a{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 14px;border:1px solid rgba(36,36,43,.12);border-radius:11px;color:#fff;background:#24242b;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 4px 12px rgba(15,23,42,.12);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.brand-cta a:active{transform:scale(.98)}
+@media(max-width:380px){.brand-footer{padding-right:14px;padding-left:14px;gap:10px}.brand-link{font-size:.76rem}.brand-cta a{min-height:32px;padding:0 12px;font-size:.74rem}}
+
+/* Estructura de página tipo iPhone: el footer ocupa el final disponible */
+html{min-height:100%;background:#f5f5f7}
+body{min-height:100%;background:#f5f5f7;-webkit-text-size-adjust:100%}
+.app-shell{display:flex;flex-direction:column;min-height:100svh;min-height:100dvh;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+.scanner-layout{width:100%}
+.brand-footer{margin-top:auto;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));border-top-color:rgba(60,60,67,.16);background:rgba(255,255,255,.9);box-shadow:0 -10px 24px rgba(60,60,67,.06),inset 0 1px 0 rgba(255,255,255,.96);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%)}
+.brand-link{font-weight:600;letter-spacing:-.015em}
+.brand-cta a{border-radius:999px;background:#1d1d1f;box-shadow:0 4px 12px rgba(0,0,0,.13);font-weight:600;letter-spacing:-.01em}
+
+/* El footer llega hasta el borde inferior, como una página nativa de Apple */
+.app-shell{padding-bottom:0}
+.brand-footer{position:relative;isolation:isolate;margin-bottom:0;padding-bottom:env(safe-area-inset-bottom,0px);min-height:62px;border-top:1px solid rgba(255,255,255,.72);box-shadow:0 -10px 28px rgba(60,60,67,.07),inset 0 1px 0 rgba(255,255,255,.78);background:rgba(255,255,255,.58);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%)}
+.brand-footer:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.08) 42%,rgba(255,255,255,.2));box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.brand-copy,.brand-cta{position:relative;z-index:1}
+.brand-cta a{border-color:rgba(255,255,255,.26);background:rgba(29,29,31,.86);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 16px rgba(0,0,0,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+/* Visor completo con acabado liquid glass */
+.camera-stage{background:rgba(35,35,42,.76);border-color:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(0,0,0,.14),0 18px 40px rgba(0,0,0,.16);backdrop-filter:blur(24px) saturate(155%);-webkit-backdrop-filter:blur(24px) saturate(155%)}
+.camera-stage:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.025) 38%,rgba(0,0,0,.12));box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.camera-placeholder{background:rgba(20,20,27,.52);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -18px 34px rgba(0,0,0,.1);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%)}
+.camera-placeholder:after{content:"";position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.14),transparent 28%,transparent 68%,rgba(255,255,255,.045));mix-blend-mode:screen}
+.camera-copy{display:contents}
+.camera-copy strong{font:600 21px -apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;letter-spacing:-.02em;text-shadow:0 1px 12px rgba(0,0,0,.22)}
+.camera-copy span{color:rgba(255,255,255,.8);font-size:13px;line-height:1.48;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+
+/* Acabado premium: vidrio oscuro sobrio, sin brillos artificiales */
+.camera-stage{background:rgba(28,28,33,.86);border-color:rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.26),0 20px 42px rgba(0,0,0,.14);backdrop-filter:blur(30px) saturate(125%);-webkit-backdrop-filter:blur(30px) saturate(125%)}
+.camera-stage:before{background:none;box-shadow:none}
+.camera-placeholder{background:rgba(28,28,33,.72);border-color:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),inset 0 -20px 36px rgba(0,0,0,.12);backdrop-filter:blur(30px) saturate(125%);-webkit-backdrop-filter:blur(30px) saturate(125%)}
+.camera-placeholder:after{display:none}
+.camera-copy strong{text-shadow:0 1px 10px rgba(0,0,0,.28)}
+.camera-copy span{color:rgba(255,255,255,.72);text-shadow:none}
+
+/* Biblioteca Liquid Glass: refracción SVG en Chromium y blur nativo como fallback */
+.camera-stage.liquid-glass{background:rgba(28,28,33,.62);border-color:rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(0,0,0,.2),0 20px 42px rgba(0,0,0,.16);backdrop-filter:url("#liquid-glass");-webkit-backdrop-filter:blur(18px) saturate(155%)}
+.camera-stage.liquid-glass:before{background:rgba(255,255,255,.09);box-shadow:none}
+.camera-stage.liquid-glass:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 1px 0 rgba(255,255,255,.08),inset -1px 0 rgba(114,211,255,.08),inset 0 -16px 30px rgba(255,255,255,.06);mix-blend-mode:screen}
+.camera-stage.liquid-glass .liquid-glass__refraction{display:block}
+
+/* Bisel óptico inspirado en el ejemplo de Lens Button */
+.camera-stage.liquid-glass{border:1px double rgba(255,255,255,.16);background:rgba(12,12,16,.2);box-shadow:inset 2px -2px 1px -1px rgba(255,255,255,.68),inset -2px 2px 1px -1px rgba(255,255,255,.42),inset 6px -6px 1px -6px rgba(255,255,255,.34),inset -6px 6px 1px -6px rgba(255,255,255,.28),inset 0 0 3px rgba(0,0,0,.82),0 18px 36px rgba(0,0,0,.18)}
+.camera-stage.liquid-glass:before{top:31%;right:7%;bottom:auto;left:7%;z-index:1;width:auto;height:62%;border:1px solid rgba(0,0,0,.48);border-radius:inherit;background:transparent;filter:blur(9px);box-shadow:none}
+.camera-stage.liquid-glass:after{background:linear-gradient(45deg,rgba(255,255,255,.38) 0%,transparent 18%,transparent 82%,rgba(255,255,255,.24) 100%);filter:blur(7px);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 1px rgba(255,255,255,.18);mix-blend-mode:screen}
+.camera-stage.liquid-glass>#cameraReader,.camera-stage.liquid-glass>.camera-placeholder,.camera-stage.liquid-glass>.scan-frame{z-index:2}
+
+/* Liquid glass negro premium, inspirado en las superficies de iPhone */
+.camera-stage.liquid-glass-black{position:relative;overflow:hidden;isolation:isolate;background:rgba(5,5,7,.94);border:1px solid rgba(255,255,255,.12);border-radius:24px;box-shadow:0 8px 32px rgba(0,0,0,.68),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(0,0,0,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.camera-stage.liquid-glass-black:before{display:none}
+.camera-stage.liquid-glass-black .camera-placeholder{background:transparent;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.camera-stage.liquid-glass-black .scan-line{box-shadow:0 0 12px rgba(255,255,255,.65)}
+
+/* Encabezado limpio, centrado y sin indicador adicional */
+.topbar{justify-content:center;padding-bottom:24px}
+.brand{margin-inline:auto}
